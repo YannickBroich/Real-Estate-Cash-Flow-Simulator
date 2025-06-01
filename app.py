@@ -43,9 +43,9 @@ def calculate_investment_summary(
         equity_increase = 0
         current_remaining_debt = loan_amount 
         
-        df_rows = [] # Liste zum Sammeln der Zeilen
+        df_rows = [] 
 
-        # Eintrag für Jahr 0 (Initialwerte)
+        
         df_rows.append({
             "Year": 0,
             "**Gross Rent (€)**": 0.0,
@@ -67,7 +67,7 @@ def calculate_investment_summary(
         simulated_year = 0
         # Loop runs as long as debt > 0
         while current_remaining_debt > 0.0 and simulated_year < MAX_SIMULATION_YEARS:
-            simulated_year += 1 # Beginne bei Jahr 1
+            simulated_year += 1 
 
             gross_rent = rent * size_sqm * 12
             deductible_service_charge = service_charge_annual * deductible_service_charge_pct
@@ -85,7 +85,7 @@ def calculate_investment_summary(
                 
                 current_remaining_debt -= current_loan_repayment
                 if current_remaining_debt < 0.0:
-                    current_remaining_debt = 0.0 # Schuld kann nicht negativ werden
+                    current_remaining_debt = 0.0 
             
             # Operative area
             cashflow_before_taxes_calc = gross_rent - vacancy_loss - maintenance_cost - non_deductible_service_charge - current_interest_payment
@@ -150,7 +150,7 @@ def calculate_investment_summary(
                     debt_at_start_of_payoff_year = prev_year_data['Remaining Debt (€)'].iloc[0]
                     repayment_in_payoff_year = df_for_payoff[df_for_payoff['Year'] == year_of_payoff]['Loan Repayment (Principal) (€)'].iloc[0]
 
-                    if repayment_in_payoff_year > 0: # Vermeide Division durch Null
+                    if repayment_in_payoff_year > 0: 
                         
                         paid_off_year = (year_of_payoff - 1) + (debt_at_start_of_payoff_year / repayment_in_payoff_year)
                     else:
@@ -200,8 +200,7 @@ def main():
         st.header("Assumptions")
         rents_str = st.text_input("Expected Rent per m² (comma-separated, e.g. 15,25,30)", value="25,30,35")
         tax_rate = st.number_input("Tax Rate / Marginal Tax Rate (%)", value=30.0) / 100
-        # WICHTIG: amortization_rate wurde in der vorherigen Version nicht in `main` übergeben
-        # und verursachte einen NameError in `calculate_investment_summary`
+        
         amortization_rate = st.number_input("Annual Amortization Rate (% of Purchase Price)", value=2.0) / 100
 
     rents = [float(x.strip()) for x in rents_str.split(",") if x.strip()]
@@ -219,7 +218,7 @@ def main():
         service_charge_annual,
         deductible_service_charge_pct,
         tax_rate,
-        amortization_rate # Jetzt korrekt übergeben
+        amortization_rate 
     )
 
     st.header("Equity Return Summary")
@@ -348,7 +347,7 @@ def main():
         else:
             st.markdown(f"**The Net Cashflow will be positive for the first time in year {int(first_positive_cf_year)}.**")
 
-        # Ausgabe der Abzahlungsdauer
+        
         if paid_off_year is not None and paid_off_year > 0:
             st.markdown(f"**In the current scenario you will have paid off the loan in {paid_off_year:.1f} years.**")
         else:

@@ -81,7 +81,7 @@ Ensure you have Python installed (Python 3.8+ is recommended).
 Clone this repository to your local machine using Git:
 
 bash
-git clone https://github.com/YourGitHubUsername/real-estate-investment-simulator.git
+git clone https://github.com/YannickBroich/real-estate-investment-simulator.git
 cd real-estate-investment-simulator
 
 ### 2. Set Up a Virtual Environment (Recommended)

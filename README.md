@@ -1,7 +1,7 @@
 # Real Estate Investment Simulator
 
 ## Overview
-This Streamlit web application is designed to help users simulate potential returns and cash flows from real estate investments. It provides a detailed financial projection based on various user inputs, including purchase costs, financing terms, operating expenses, and different rent scenarios. The simulation dynamically extends until the loan is fully repaid, offering a clear picture of the investment's long-term viability and profitability.
+This Streamlit web application is designed to help users simulate potential returns and cash flows from real estate investments. It provides a detailed financial projection based on various user inputs, including purchase costs, financing terms, operating expenses, and different rent scenarios. The simulation dynamically extends until the loan is fully repaid, offering a clear picture of the investment's long-term viability and profitability. You can host it locally (see below) or use this link: https://real-estate-cash-flow-simulator.streamlit.app/
 
 ## Features
 
